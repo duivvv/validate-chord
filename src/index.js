@@ -1,7 +1,9 @@
 import validateNote from 'validate-note';
-import types from './data/types';
 
-export default (chord, {maxOctave, flatToSharp} = {maxOctave: 8, flatToSharp: false}) => {
+import types from './data/types';
+import getNote from './lib/getNote';
+
+export default (chord, {maxOctave = 8, flatToSharp = false} = {}) => {
 
   if(typeof chord !== `string`){
     throw new Error(`${chord} is not a String`);
@@ -17,10 +19,4 @@ export default (chord, {maxOctave, flatToSharp} = {maxOctave: 8, flatToSharp: fa
 
   return {note: {letter, signature, octave}, type};
 
-};
-
-const getNote = chord => {
-  if(!isNaN(chord.charAt(1))) return chord.slice(0, 2);
-  else if(!isNaN(chord.charAt(2))) return chord.slice(0, 3);
-  else throw new Error(`${chord} is not a valid chord`);
 };
