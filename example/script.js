@@ -1,15 +1,10 @@
-const validateChord = require(`../dist/`);
+const validateChord = require(`../`);
 
-/* '', m, M, minor, major, aug, dim */
+const chord = validateChord(`A3m`);
+console.log(chord);
 
-const chord = `A4`;
-console.log(validateChord(chord));
+const chord2 = validateChord(`F#4aug`);
+console.log(chord2);
 
-const chord2 = `F#4min`;
-console.log(validateChord(chord2));
-
-const chord3 = `G2maj`;
-console.log(validateChord(chord3));
-
-const chord4 = `G7aug`;
-console.log(validateChord(chord4));
+const chord3 = validateChord(`D2`);
+console.log(chord3);

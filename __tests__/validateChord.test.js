@@ -1,4 +1,4 @@
-const validateChord = require(`../dist/`);
+const validateChord = require(`../src/`);
 
 describe(`returns the right values`, () => {
 
@@ -7,7 +7,6 @@ describe(`returns the right values`, () => {
     const chord = {
       note: {
         letter: `A`,
-        signature: ``,
         octave: 3
       },
       type: `major`
@@ -22,22 +21,6 @@ describe(`returns the right values`, () => {
     const chord = {
       note: {
         letter: `A`,
-        signature: ``,
-        octave: 3
-      },
-      type: `major`
-    };
-
-    expect(validateChord(`A3M`)).toEqual(chord);
-
-  });
-
-  it(`returns the chord split up if valid (major)`, () => {
-
-    const chord = {
-      note: {
-        letter: `A`,
-        signature: ``,
         octave: 3
       },
       type: `major`
@@ -47,12 +30,25 @@ describe(`returns the right values`, () => {
 
   });
 
+  it(`returns the chord split up if valid (major)`, () => {
+
+    const chord = {
+      note: {
+        letter: `A`,
+        octave: 3
+      },
+      type: `major`
+    };
+
+    expect(validateChord(`A3major`)).toEqual(chord);
+
+  });
+
   it(`returns the chord split up if valid (augmented)`, () => {
 
     const chord = {
       note: {
         letter: `A`,
-        signature: ``,
         octave: 3
       },
       type: `augmented`
@@ -67,7 +63,6 @@ describe(`returns the right values`, () => {
     const chord = {
       note: {
         letter: `A`,
-        signature: ``,
         octave: 3
       },
       type: `minor`
@@ -82,7 +77,6 @@ describe(`returns the right values`, () => {
     const chord = {
       note: {
         letter: `A`,
-        signature: ``,
         octave: 3
       },
       type: `diminished`
@@ -112,7 +106,6 @@ describe(`returns the right values`, () => {
     const chord = {
       note: {
         letter: `F`,
-        signature: ``,
         octave: 2
       },
       type: `minor`
@@ -173,7 +166,7 @@ describe(`throws appropriate errors`, () => {
   it(`throws error on wrong input type`, () => {
 
     expect(() => validateChord(555))
-      .toThrowError(`555 is not a String`);
+      .toThrowError(`'555' is not a valid chord`);
 
   });
 
@@ -191,10 +184,17 @@ describe(`throws appropriate errors`, () => {
 
   });
 
+  it(`throws error on no octave`, () => {
+
+    expect(() => validateChord(`Am`))
+    .toThrow();
+
+  });
+
   it(`throws error on non-existing chord type`, () => {
 
     expect(() => validateChord(`A4k`))
-    .toThrowError(`k is not a valid chord type`);
+    .toThrowError(`'k' is not a valid chord type`);
 
   });
 

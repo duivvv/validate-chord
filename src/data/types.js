@@ -1,9 +1,13 @@
 export default {
+
   '': `major`,
-  'm': `minor`,
-  'min': `minor`,
-  'M': `major`,
-  'maj': `major`,
-  'aug': `augmented`,
-  'dim': `diminished`
+  major: `major`,
+  maj: `major`,
+
+  m: `minor`,
+  min: `minor`,
+
+  aug: `augmented`,
+  dim: `diminished`
+
 };
