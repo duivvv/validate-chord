@@ -24,7 +24,8 @@ currently validates:
 
 - minor (m, min, minor)
 - major ('', maj, major)
-- augmented (aug) and diminished (dim)
+- augmented (aug)
+- diminished (dim)
 
 [PR welcome](src/data/types.js) for more chord types
 
