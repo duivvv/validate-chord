@@ -6,6 +6,7 @@ export default {
 
   m: `minor`,
   min: `minor`,
+  minor: `minor`,
 
   aug: `augmented`,
   dim: `diminished`
