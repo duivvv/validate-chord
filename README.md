@@ -20,6 +20,14 @@ console.log(chord);
 // > { note: { letter: 'A', signature: '#', octave: 3 }, type: 'minor' }
 ```
 
+currently validates:
+
+- minor (m, min, minor)
+- major ('', maj, major)
+- augmented (aug) and diminished (dim)
+
+[PR welcome](src/data/types.js) for more chord types
+
 ### Installation
 
 Install via [yarn](https://github.com/yarnpkg/yarn)
