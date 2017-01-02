@@ -1,6 +1,6 @@
 {
   "name": "validate-chord",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🎼 Validates a chord (scientific pitch notation) and throws errors if needed",
   "main": "cjs/index.js",
   "browser": "dist/validateChord.js",
